@@ -36,9 +36,9 @@ const initialState: ComponentState = {
     parent: DEFAULT_ID,
     type: "",
     children: [],
-    props: {
-      style: {},
-    },
+    // props: {
+    //   style: {},
+    // },
     function: {},
   },
 };
@@ -89,13 +89,13 @@ const componentsSlice: any = createSlice({
           id,
           props: {
             ...item?.props,
-            style: {
-              // minHeight: "50px",
-              // width: "100%",
-              overflow: "hidden",
-              // paddding: "10px",
-              ...item?.defaultStyles,
-            },
+            // style: {
+            //   // minHeight: "50px",
+            //   // width: "100%",
+            //   overflow: "hidden",
+            //   // paddding: "10px",
+            //   ...item?.defaultStyles,
+            // },
           },
           children: [],
           type: item?.type,
@@ -318,6 +318,15 @@ const componentsSlice: any = createSlice({
       state[id].content[name] = value;
     },
 
+    // update component
+    updateComponent: (
+      state: any,
+      action: PayloadAction<{ id: ComponentId; name: string; value: any }>
+    ) => {
+      const { id, name, value } = action.payload;
+      state[id][name] = value;
+    },
+
     // set component name
     setComponentName: (state: any, action) => {
       const { componentId, name } = action.payload;
@@ -372,14 +381,7 @@ const componentsSlice: any = createSlice({
     },
   },
   // used for handling async actions or thunk actions
-  extraReducers: (builder) => {
-    // Example of handling a custom action dispatched by a thunk
-    // builder.addCase(removeJob.fulfilled, (state, action) => {
-    //   state.isError = false;
-    //   state.error = "";
-    //   state.jobs = state.jobs.filter((job) => job.id !== action.meta.arg);
-    // });
-  },
+  extraReducers: (builder) => {},
 });
 
 export const {
@@ -393,6 +395,7 @@ export const {
   select,
   unselect,
   setComponentName,
+  updateComponent,
   updateProps,
   updateContent,
   updatePropsStyle,

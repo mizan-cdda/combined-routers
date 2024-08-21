@@ -7,7 +7,7 @@ import BasicSettings from "./BasicSettings";
 const tabs = [
   { id: "basic", name: "Basic" },
   { id: "style", name: "Style" },
-  { id: "advanced", name: "Advanced" },
+  // { id: "advanced", name: "Advanced" },
 ];
 
 const SettingsTab = ({ component }: any) => {
@@ -26,7 +26,7 @@ const SettingsTab = ({ component }: any) => {
         {tabs.map((tab) => (
           <button
             key={tab.id}
-            className={`tab-btn ${
+            className={`tab-btn w-full ${
               activeTab === tab.id ? "active bg-gray-700 p-2" : ""
             }`}
             onClick={() => openTab(tab.id)}

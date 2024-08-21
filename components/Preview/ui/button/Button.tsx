@@ -1,10 +1,10 @@
-import React, { type ButtonHTMLAttributes, type FC } from 'react';
-import type { VariantProps } from 'class-variance-authority';
-import { buttonVariants } from '../variants/button-variants';
-import Loader from '../loader/Loader';
+import React, { type ButtonHTMLAttributes, type FC } from "react";
+import type { VariantProps } from "class-variance-authority";
+import { buttonVariants } from "../variants/button-variants";
+import Loader from "../loader/Loader";
 
 export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color">,
     VariantProps<typeof buttonVariants> {
   children?: React.ReactNode;
   loading?: boolean;
@@ -15,12 +15,23 @@ const Button: FC<ButtonProps> = ({
   variant,
   color,
   shape,
-  size = 'md',
+  size = "md",
   shadow,
   className: classes,
   loading = false,
   ...props
 }) => {
+  console.log(
+    "all children",
+    props,
+    variant,
+    shape,
+    size,
+    children,
+    shadow,
+    color,
+    props
+  );
   return (
     <button
       className={buttonVariants({
@@ -30,8 +41,8 @@ const Button: FC<ButtonProps> = ({
         size,
         shadow,
         className: `inline-flex items-center gap-1 whitespace-nowrap text-center text-sm ${
-          loading ? 'relative !text-transparent pointer-events-none' : ''
-        } ${classes}`
+          loading ? "relative !text-transparent pointer-events-none" : ""
+        } ${classes}`,
       })}
       {...props}
     >
@@ -43,7 +54,7 @@ const Button: FC<ButtonProps> = ({
           thickness={4}
         />
       ) : (
-        ''
+        ""
       )}
     </button>
   );

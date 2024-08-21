@@ -18,7 +18,7 @@ import Table from "./Table";
 
 import Box from "./Box";
 import Badge from "./Badge";
-import Button from "./Button";
+import Button from "../Preview/ui/button/Button";
 import Layout from "./Layout";
 import Form from "./Form";
 import Heading from "./elements/Heading";

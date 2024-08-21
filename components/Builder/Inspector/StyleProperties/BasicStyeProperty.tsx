@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updatePropsStyle } from "@/redux/features/components/componentsSlice";
 import Accordion from "../ui/Accordion/Accordion";
-import DisplayPanel from "./components/DisplayPanel";
+import DisplayPanel from "./components/DisplayPanel/DisplayPanelNew";
 import SpacingPanel from "./components/SpacingPanel";
 import SizePanel from "./components/SizePanel";
 import TypographyPanel from "./components/TypographyPanel";
@@ -13,9 +13,9 @@ import ColorPicker from "../ui/ColorPicker/ColorPicker";
 
 const StyleProperty = ({ component }: any) => {
   const dispatch = useDispatch();
-  const { id } = component || {};
+  const { id, type } = component || {};
 
-  const isRoot = id === "root";
+  const isRoot = (type === "form") || (id === "root");
 
   const onChange = (propertyName: string) => (e: any) => {
     dispatch(
@@ -36,23 +36,23 @@ const StyleProperty = ({ component }: any) => {
           <DisplayPanel component={component} />
 
           {/* Spacing  */}
-          <SpacingPanel component={component} />
+          {/* <SpacingPanel component={component} /> */}
           {/* Size  */}
-          <SizePanel component={component} />
+          {/* <SizePanel component={component} /> */}
 
           {/* Typography  */}
-          <TypographyPanel component={component} />
+          {/* <TypographyPanel component={component} /> */}
 
           {/* Border  */}
-          <BorderPanel />
+          {/* <BorderPanel /> */}
         </>
       )}
 
       {/* Backgrounds  */}
-      <BackgroundPanel />
+      {/* <BackgroundPanel /> */}
 
       {/* Effect  */}
-      <EffectPanel />
+      {/* <EffectPanel /> */}
     </div>
   );
 };

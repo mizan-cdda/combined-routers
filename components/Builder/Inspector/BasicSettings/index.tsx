@@ -1,5 +1,4 @@
 import InputBasicSettings from "./InputBasicSettings";
-import { Icon } from "../../IconHandler/IconComponentCopy";
 import DisplaySize from "./DisplaySize";
 import ChildrenViewer from "./ChildrenViewer";
 import ButtonBasicSettings from "./ButtonBasicSettings";
