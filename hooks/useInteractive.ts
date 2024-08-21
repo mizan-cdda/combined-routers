@@ -12,7 +12,7 @@ import {
 import { getHoveredId, getSelectedId } from "@/utils/selectors";
 
 export const useInteractive = (
-  component: any,
+  component: any = {},
   enableVisualHelper = false,
   withoutComponentProps = false
 ) => {
@@ -37,7 +37,7 @@ export const useInteractive = (
   const focusInput = useSelector(getFocusedComponent(component?.id));
 
   const [, drag] = useDrag({
-    type: component?.type,
+    type: component?.type || '',
     item: { id: component?.id, type: component?.type, isMoved: true },
   });
 
@@ -49,8 +49,8 @@ export const useInteractive = (
     // if the component is selected, show the layout
     onMouseOver: (event: MouseEvent) => {
       event.stopPropagation();
-      dispatch(hover({ id: component.id }));
-      dispatch(parentId({ id: component.id }));
+      dispatch(hover({ id: component?.id ?? '' }));
+      dispatch(parentId({ id: component?.id ?? '' }));
     },
     // on mouse out, if the component is not selected, unhover it
     onMouseOut: () => {
@@ -60,13 +60,13 @@ export const useInteractive = (
     onClick: (event: MouseEvent) => {
       event.preventDefault();
       event.stopPropagation();
-      dispatch(select({ id: component.id }));
+      dispatch(select({ id: component?.id ?? '' }));
     },
     // for double click to edit text
     onDoubleClick: (event: MouseEvent) => {
       event.preventDefault();
       event.stopPropagation();
-      alert(JSON.stringify(`Editing ${component.name}:${component.id}`));
+      alert(JSON.stringify(`Editing ${component?.name}:${component?.id}`));
       if (focusInput === false) {
         // dispatch.app.toggleInputText();
       }

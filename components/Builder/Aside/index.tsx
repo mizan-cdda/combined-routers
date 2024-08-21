@@ -8,6 +8,9 @@ import Link from "next/link";
 import SearchComonent from "./SearchComponent";
 import { useSelector } from "react-redux";
 import { getSelectedId } from "@/utils/selectors";
+import { generateId } from "@/utils/generateId";
+import Button from "@/components/Preview/ui/button/Button";
+import useConvertPageCompilerData from "@/hooks/useConvertPageCompilerData";
 
 const Aside = ({ data }: ComponentsJsonProps) => {
   // const { asPath, isQueryEmpty } = usePRLocation();
@@ -49,6 +52,12 @@ const Aside = ({ data }: ComponentsJsonProps) => {
     // }
     setOpen(true);
     // setExportJsonModal(true);
+  };
+
+  const { data: previewData } = useConvertPageCompilerData();
+
+  const handlePreview = () => {
+    console.log("preview data", previewData);
   };
 
   return (
@@ -121,18 +130,13 @@ const Aside = ({ data }: ComponentsJsonProps) => {
           <span>Save </span>
           <Icon nameIcon="AiFillSave" />
         </button> */}
-        {/* <Link
-          href={`/preview?${
-            asPath.split("/")[1].split("-")[0]
-          }=${generateId()}&type=${
-            asPath.includes("form") ? "form" : asPath.split("/")[1]
-          }&preview=true`}
+        <Button
+          onClick={handlePreview}
           // target="_blank"
           className="bg-slate-500 hover:bg-slate-800 transition-all duration-150 flex items-center justify-center gap-2 px-2 py-1 rounded-sm text-white text-sm font-semibold"
         >
-          <span>Preview </span>
-          <Icon nameIcon="FaRegEye" />
-        </Link> */}
+          Preview
+        </Button>
         {/* <button className="bg-slate-500 hover:bg-slate-800 transition-all duration-150 flex items-center justify-center gap-2 px-2 py-1 rounded-sm text-white text-sm font-semibold">
           <span>Settings</span>
           <Icon nameIcon="MdOutlineSettings" />

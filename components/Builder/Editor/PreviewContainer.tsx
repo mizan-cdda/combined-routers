@@ -1,7 +1,7 @@
-import { useInteractive } from "@/hooks/useInteractive";
-import { getComponentBy } from "@/utils/selectors";
 import React, { FunctionComponent, ComponentClass } from "react";
+import { getComponentBy } from "@/utils/selectors";
 import { useSelector } from "react-redux";
+import { useInteractive } from "@/hooks/useInteractive";
 
 const PreviewContainer: React.FC<{
   component: any;
@@ -9,7 +9,7 @@ const PreviewContainer: React.FC<{
   enableVisualHelper?: boolean;
   isBoxWrapped?: boolean;
 }> = ({
-  component,
+  component = {},
   type,
   enableVisualHelper,
   isBoxWrapped,
@@ -19,7 +19,7 @@ const PreviewContainer: React.FC<{
 
   const { style, ...rest } = props;
 
-  const { props: styleProps } = useSelector(getComponentBy(component.id)) || {};
+  const { props: styleProps } = useSelector(getComponentBy(component?.id)) || {};
   const { style: componentStyle } = styleProps || {};
 
 

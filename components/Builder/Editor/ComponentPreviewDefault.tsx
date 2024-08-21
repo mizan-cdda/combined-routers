@@ -52,21 +52,6 @@ const ComponentPreview: React.FC<{
     }
   );
 
-  // Uncomment this block if you want to use lazy loading for CSR
-  // DYNAMIC COMPONENT IMPORT - CSR
-  // const DynamicComponent = lazy(
-  //   () => import(`@/@core-components/ui-components/${type}`)
-  // );
-
-  // Uncomment this block if you want to use dynamic loading with SSR
-  // DYNAMIC COMPONENT IMPORT - SSR
-  // const DynamicComponent = dynamic(
-  //   () => import(`@/@core-components/ui-components/${type}`),
-  //   {
-  //     ssr: false,
-  //   }
-  // );
-
   // Return the component wrapped in a div with the ref
   return (
     <div ref={ref}>

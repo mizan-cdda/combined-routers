@@ -3,42 +3,7 @@ import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import PreviewContainer from "./PreviewContainer";
 import WithChildrenPreviewContainer from "./WithChildrenPreviewContainer";
-import { Button } from "@/@core-components/ui-components";
 import ComponentPreviewCopy from "./ComponentPreviewDefault";
-
-// import AlertPreview from '~components/editor/previews/AlertPreview'
-// import AvatarPreview, {
-//   AvatarBadgePreview,
-//   AvatarGroupPreview,
-// } from '~components/editor/previews/AvatarPreview'
-// import AccordionPreview, {
-//   AccordionButtonPreview,
-//   AccordionItemPreview,
-//   AccordionPanelPreview,
-// } from '~components/editor/previews/AccordionPreview'
-// import * as Chakra from '@chakra-ui/react'
-// import { getComponentBy } from '~core/selectors/components'
-// import { InputRightElementPreview } from '~components/editor/previews/InputRightElement'
-// import { InputLeftElementPreview } from '~components/editor/previews/InputLeftElement'
-// import AspectRatioPreview from '~components/editor/previews/AspectRatioBoxPreview'
-// import ButtonPreview from '~components/editor/previews/ButtonPreview'
-// import PreviewContainer from '~components/editor/PreviewContainer'
-// import WithChildrenPreviewContainer from '~components/editor/WithChildrenPreviewContainer'
-// import IconPreview from './previews/IconPreview'
-// import IconButtonPreview from './previews/IconButtonPreview'
-// import SelectPreview from '~components/editor/previews/SelectPreview'
-// import NumberInputPreview from '~components/editor/previews/NumberInputPreview'
-// import BreadcrumbPreview from './previews/BreadcrumbPreview'
-// import BreadcrumbItemPreview from './previews/BreadcrumbItemPreview'
-// import HighlightPreview from './previews/HighlightPreview'
-// import StatGroupPreview, {
-//   StatHelpTextPreview,
-//   StatPreview,
-// } from './previews/StatPreview'
-// import SkeletonPreview, {
-//   SkeletonCirclePreview,
-//   SkeletonTextPreview,
-// } from './previews/SkeletonPreview'
 
 const ComponentPreview: React.FC<{
   componentName: string;
