@@ -40,15 +40,6 @@
       "description": "Email input component"
     },
     {
-      "id": "pyrcomp-ML9EY8CKLPF8T",
-      "name": "Phone",
-      "type": "phone",
-      "icon": "MdPhone",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "Phone input component"
-    },
-    {
       "id": "pyrcomp-LP9ED16W15TJB",
       "name": "Select",
       "type": "select",
@@ -75,74 +66,12 @@
       "author": "Maruf",
       "description": "N/A"
     },
-    {
-      "id": "pyrcomp-LP9ED1P083TJB",
-      "name": "TextArea",
-      "type": "textarea",
-      "icon": "BsTextareaResize",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-LP9ED16W83DJS",
-      "name": "Hidden",
-      "type": "hidden",
-      "icon": "BiHide",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-ML9EY45W83TJB",
-      "name": "Time",
-      "type": "time",
-      "icon": "BiTime",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-ML9EY45W88YHT",
-      "name": "Media",
-      "type": "media",
-      "icon": "GoFileMedia",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-ML9EY45L09YHT",
-      "name": "Range",
-      "type": "range",
-      "icon": "RxSlider",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-ML9EY8C9*PLTT",
-      "name": "URL",
-      "type": "url",
-      "icon": "SiCurl",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
+
     {
       "id": "pyrcomp-ML9EY8C90MLHT",
       "name": "Password",
       "type": "password",
       "icon": "PiPassword",
-      "category": "basic",
-      "author": "Maruf",
-      "description": "N/A"
-    },
-    {
-      "id": "pyrcomp-LP9ED1645HTJB",
-      "name": "Date & Time",
-      "type": "datetime",
-      "icon": "TbCalendarTime",
       "category": "basic",
       "author": "Maruf",
       "description": "N/A"

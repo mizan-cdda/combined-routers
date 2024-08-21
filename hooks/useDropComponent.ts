@@ -38,31 +38,39 @@ export const useDropComponent = ({
           moveComponent({ parentId: componentId, componentId: item.id })
         );
       } else {
+        dispatch(
+          addComponent({
+            parentName: componentId,
+            type: item.type,
+            rootParentType: item.rootParentType,
+            item,
+          })
+        );
         // COMPONENT IS NOT DROP DIRECTLY TO THE ROOT
-        if (
-          item?.type === "layout" ||
-          componentId !== "root" ||
-          item?.type === "section" ||
-          item?.type === "form"
-        ) {
-          dispatch(
-            addComponent({
-              parentName: componentId,
-              type: item.type,
-              rootParentType: item.rootParentType,
-              item,
-            })
-          );
-        } else if (componentId !== "root") {
-          dispatch(
-            addComponent({
-              parentName: componentId,
-              type: item.type,
-              rootParentType: item.rootParentType,
-              item,
-            })
-          );
-        }
+        // if (
+        //   item?.type === "layout" ||
+        //   componentId !== "root" ||
+        //   item?.type === "section" ||
+        //   item?.type === "form"
+        // ) {
+        //   dispatch(
+        //     addComponent({
+        //       parentName: componentId,
+        //       type: item.type,
+        //       rootParentType: item.rootParentType,
+        //       item,
+        //     })
+        //   );
+        // } else if (componentId !== "root") {
+        //   dispatch(
+        //     addComponent({
+        //       parentName: componentId,
+        //       type: item.type,
+        //       rootParentType: item.rootParentType,
+        //       item,
+        //     })
+        //   );
+        // }
       }
     },
     canDrop: () => canDrop,
