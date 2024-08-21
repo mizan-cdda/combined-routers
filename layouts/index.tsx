@@ -1,4 +1,3 @@
-import MoveableComponent from "@/@core-components/builder-components/MoveableComponent";
 import BuilderLayout from "./BuilderLayout";
 import ProjectLayout from "./ProjectLayout";
 import ProjectSettingsLayout from "./ProjectSettingsLayout";
@@ -15,7 +14,7 @@ const Layout = ({ children, layout, data }: LayoutProps) => {
 
   const currentLayout = layouts.shift();
   const props = layouts.join("_");
-
+ 
   return (
     <>
       {currentLayout === "project" && (
@@ -42,7 +41,7 @@ const Layout = ({ children, layout, data }: LayoutProps) => {
         currentLayout === "api-builder" ||
         currentLayout === "model-builder") && (
         <BuilderLayout data={data}>
-          {<Layout layout={props}>{children}</Layout>}
+          <Layout layout={props}>{children}</Layout>
         </BuilderLayout>
       )}
 

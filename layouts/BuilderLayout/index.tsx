@@ -9,12 +9,12 @@ import { useRouter } from "next/router";
 const BuilderLayout = ({ children, data }: LayoutProps) => {
   const { asPath, query } = useRouter();
 
+  console.log("in builder layout", data)
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="flex h-screen overflow-hidden">
-        <Aside data={data} />
-        {/* {children} */}
-        <Editor data={data} {...{ asPath, query }} />
+         <Aside data={data} />
+         <Editor data={data} {...{ asPath, query }} /> 
       </div>
     </DndProvider>
   );
