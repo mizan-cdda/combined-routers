@@ -141,7 +141,7 @@ const Aside = ({ data }: ComponentsJsonProps) => {
           <span>Settings</span>
           <Icon nameIcon="MdOutlineSettings" />
         </button> */}
-        <button
+        {/* <button
           className="bg-green-700 flex items-center justify-center gap-2 px-2 py-1 rounded-sm text-white text-sm font-semibold disabled:bg-gray-700"
           disabled={selectedComponent === "root"}
           onClick={handlePublished}
@@ -149,9 +149,9 @@ const Aside = ({ data }: ComponentsJsonProps) => {
             selectedComponent === "root" ? "Component must be selected" : ""
           }
         >
-          {/* <span>{isQueryEmpty ? "Publish" : "Update"}</span>
-          <Icon nameIcon="PiScribbleLoopLight" /> */}
-        </button>
+          <span>{isQueryEmpty ? "Publish" : "Update"}</span>
+          <Icon nameIcon="PiScribbleLoopLight" />
+        </button> */}
       </div>
       <ListingComponent open={open} setOpen={setOpen} pageBuilder={false} />
       <ExportJsonModal open={exportJsonModal} setOpen={setExportJsonModal} />

@@ -11,7 +11,7 @@ const useConvertPageCompilerData = ({
   // Get the 'components' slice of the Redux state
   const components = useSelector(getComponents);
 
-  function nestComponents(data: any = {}) {
+  function nestComponents(data : any = {}) {
     // Function to deep copy objects and arrays
     function deepCopy(obj: any = {}) {
       return JSON.parse(JSON.stringify(obj));
@@ -19,6 +19,7 @@ const useConvertPageCompilerData = ({
 
     // Create a deep copy of the original data to avoid mutating it
     const dataCopy = deepCopy(data);
+
 
     const nestedComponents = (component: any = {}) => {
       if (component?.children?.length) {
@@ -33,15 +34,13 @@ const useConvertPageCompilerData = ({
     };
 
     const rootComponent = nestedComponents(
-      deepCopy(dataCopy[dataCopy.root.children[0]])
+      // deepCopy(dataCopy[dataCopy.root])
+      dataCopy.root
     );
 
     // Return the new structure with only the root at the top level
     return {
-      root: {
-        ...dataCopy.root,
-        children: [rootComponent],
-      },
+      form : rootComponent
     };
   }
   // Return the transformed data
