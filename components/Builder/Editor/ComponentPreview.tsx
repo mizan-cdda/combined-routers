@@ -6,6 +6,7 @@ import WithChildrenPreviewContainer from "./WithChildrenPreviewContainer";
 import ComponentPreviewInput from "./ComponentPreviewInput";
 import { useDropComponent } from "@/hooks/useDropComponent";
 import { useInteractive } from "@/hooks/useInteractive";
+import Radio from "@/components/Preview/ui/form/radio/Radio";
 
 const ComponentPreview: React.FC<{
   componentName: string;
@@ -44,7 +45,14 @@ const ComponentPreview: React.FC<{
     case "text":
     case "number":
     case "email":
+    case "password":
+    case "textarea":
+    case "checkbox":
+    case "radio":
       return <ComponentPreviewInput componentName={componentName} />;
+
+    case "select":
+      return null;
 
     default:
       return <ComponentPreviewDefault componentName={componentName} />;
