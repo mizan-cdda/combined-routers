@@ -1,12 +1,12 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Cookie from 'js-cookie';
-import SidebarForm from './Sidebar';
-import DynamicForm from '../DynamicForm/DynamicForm';
-import { sForm } from './data/stepperForm';
-import Button from '../ui/button/Button';
-import { filterSubmittingValues } from '../DynamicForm/utils/filterSubmittingValues';
+"use client";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Cookie from "js-cookie";
+import SidebarForm from "./Sidebar";
+import DynamicForm from "../DynamicForm/DynamicForm";
+import { sForm } from "./data/stepperForm";
+import Button from "../ui/button/Button";
+import { filterSubmittingValues } from "../DynamicForm/utils/filterSubmittingValues";
 
 type FormProps = {
   step: number;
@@ -22,11 +22,11 @@ const Form = ({ step }: FormProps) => {
   const router = useRouter();
 
   const handleNextStep = (newData: FormData) => {
-    console.log('hello next');
+    console.log("hello next");
     const updatedData = { ...formData, [`step${step}`]: newData };
     setFormData(updatedData);
-    localStorage.setItem('formData', JSON.stringify(updatedData));
-    Cookie.set('formData', JSON.stringify(updatedData));
+    localStorage.setItem("formData", JSON.stringify(updatedData));
+    Cookie.set("formData", JSON.stringify(updatedData));
     router.push(`/form?step=${Number(step) + 1}`);
   };
 
@@ -35,8 +35,8 @@ const Form = ({ step }: FormProps) => {
   };
 
   useEffect(() => {
-    const cookieData = JSON.parse(Cookie.get('formData') || '{}');
-    const formData = JSON.parse(localStorage.getItem('formData')) || {};
+    const cookieData = JSON.parse(Cookie.get("formData") || "{}");
+    const formData = JSON.parse(localStorage.getItem("formData")) || {};
     // if (cookieData) {
     //   setFormData(cookieData);
     // }
@@ -46,12 +46,15 @@ const Form = ({ step }: FormProps) => {
   }, [step]);
 
   const handleSubmit = async (newData: FormData) => {
-    const updatedData = { ...formData, [`step${step}`]: filterSubmittingValues(newData) };
+    const updatedData = {
+      ...formData,
+      [`step${step}`]: filterSubmittingValues(newData),
+    };
     setFormData(updatedData);
-    Cookie.set('formData', JSON.stringify(updatedData));
-    localStorage.setItem('formData', JSON.stringify(updatedData));
+    Cookie.set("formData", JSON.stringify(updatedData));
+    localStorage.setItem("formData", JSON.stringify(updatedData));
     setIsSubmitted(true);
-    alert('Form submitted successfully!');
+    alert("Form submitted successfully!");
   };
 
   const renderStep = () => {
@@ -74,12 +77,22 @@ const Form = ({ step }: FormProps) => {
               </Button>
             )}
             {step < sForm.length && (
-              <Button type="submit" color="primary" className="btn btn-primary">
+              <Button
+                type="submit"
+                variant="solid"
+                color="success"
+                className="btn bg-green-600"
+              >
                 Save and Continue
               </Button>
             )}
             {step == sForm.length && (
-              <Button type="submit" variant="solid" color="success" className="btn bg-green-600">
+              <Button
+                type="submit"
+                variant="solid"
+                color="success"
+                className="btn bg-green-600"
+              >
                 Submit
               </Button>
             )}
@@ -92,11 +105,11 @@ const Form = ({ step }: FormProps) => {
   const steps = sForm.map((step, i) => ({
     name: step.name,
     slug: step.slug,
-    step: i + 1
+    step: i + 1,
   }));
 
   if (!step) {
-    router.push('/dashboard');
+    router.push("/dashboard");
   }
 
   return (
@@ -109,7 +122,9 @@ const Form = ({ step }: FormProps) => {
             <p>Form submitted successfully!</p>
           </div>
         )}
-        <pre className="dark:text-white mt-4">{JSON.stringify(formData, null, 2)}</pre>
+        <pre className="text-gray-500 mt-4">
+          {JSON.stringify(formData, null, 2)}
+        </pre>
       </div>
     </div>
   );

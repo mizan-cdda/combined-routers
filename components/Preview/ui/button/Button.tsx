@@ -21,17 +21,6 @@ const Button: FC<ButtonProps> = ({
   loading = false,
   ...props
 }) => {
-  console.log(
-    "all children",
-    props,
-    variant,
-    shape,
-    size,
-    children,
-    shadow,
-    color,
-    props
-  );
   return (
     <button
       className={buttonVariants({

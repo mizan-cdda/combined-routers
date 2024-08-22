@@ -369,8 +369,8 @@ const DynamicForm = ({
             e.stopPropagation();
             handleAddFieldArrayItem(itemName, item?.form.items);
           }}
-          className="mt-4 p-2"
-          color="success"
+          className="btn bg-green-600 mt-2"
+          variant="solid" color="success"
         >
           Add {item.placeholder}
         </Button>
