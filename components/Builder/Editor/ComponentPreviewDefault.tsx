@@ -14,8 +14,6 @@ const ComponentPreview: React.FC<{
   const { size, label, variant, shape, color, shadow } = component || {};
   // Get props and ref using the useInteractive hook
   const { props, ref }: any = useInteractive(component, false);
-
-  console.log("component props in interactive", props);
   // Destructure style from props
   const { style: intStyle, ...rest } = props;
 

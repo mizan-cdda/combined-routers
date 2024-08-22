@@ -12,6 +12,7 @@ const ComponentPreview: React.FC<{
 }> = ({ componentName, ...forwardedProps }) => {
   // component filtered
   const component = useSelector(getComponentBy(componentName));
+  const {} = component || {};
 
   // check component is valid or not
   if (!component) {
@@ -40,8 +41,9 @@ const ComponentPreview: React.FC<{
         />
       );
 
-    case "input":
+    case "text":
     case "number":
+    case "email":
       return <ComponentPreviewInput componentName={componentName} />;
 
     default:

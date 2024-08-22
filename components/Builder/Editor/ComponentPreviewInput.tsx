@@ -3,11 +3,13 @@ import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import dynamic from "next/dynamic";
 import { useInteractive } from "@/hooks/useInteractive";
+import Input from "@/components/Preview/ui/form/input/Input";
 
 const ComponentPreviewInput: React.FC<{
   componentName: string;
 }> = ({ componentName }) => {
   const component = useSelector(getComponentBy(componentName));
+  const { size, label, variant, shape, color, shadow, placeholder } = component || {};
 
   const { props, ref }: any = useInteractive(component, false);
 
@@ -41,15 +43,16 @@ const ComponentPreviewInput: React.FC<{
   // DYNAMIC COMPONENT RENDER
   return (
     <div ref={ref}>
-      <DynamicComponent
+      <Input
         {...rest}
         style={{
-          ...componentStyle,
+          // ...componentStyle,
           ...intStyle,
         }}
-        functions={component.functions}
+        // functions={component.functions}
         componentName={componentName}
         content={component?.content}
+        {...{ size, shadow, shape, color, variant, label, placeholder }}
       />
     </div>
   );

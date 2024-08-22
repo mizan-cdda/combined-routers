@@ -3,15 +3,6 @@ import UserListPage from "./UserListPage";
 import UserList from "./UserList";
 import PostUser from "./PostUser";
 
-
-
-
-
-
-
-
-
-
 import Property from "./Property";
 
 import Table from "./Table";
@@ -33,6 +24,7 @@ import Checkbox from "./elements/CheckBox";
 import RadioGroup from "./elements/RadioGroup";
 // import all inputs components for form builder
 import TextInput from "./FormInputs/Input";
+// import Input from "../Preview/ui/form/input/Input";
 import Number from "./FormInputs/Number/index";
 import Email from "./FormInputs/Email/index";
 import Submit from "./elements/Submit";
@@ -58,29 +50,12 @@ export { Table };
 // export all inputs components for form builder
 export { Number };
 export { TextInput };
+// export { Input };
 export { Email };
 
 export { Form };
 
 export { Property };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export { PostUser };
 

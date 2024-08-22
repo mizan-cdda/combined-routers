@@ -6,22 +6,21 @@ import Switch from "../../Inputs/InputsForSettings/Switch";
 interface InputSettingsProps {
   component: {
     id: string;
-    props: {
-      value: string;
-      label: string;
-      placeholder: string;
-      type: string;
-      description: string;
-      required: boolean;
-      show_label: boolean;
-      disable: boolean;
-      default_value: string | number | boolean | null | undefined | any;
-      unique: boolean;
-      hidden: boolean;
-      private_field: boolean;
-      input_name?: string;
-      hint: string;
-    };
+
+    value: string;
+    label: string;
+    placeholder: string;
+    type: string;
+    description: string;
+    required: boolean;
+    show_label: boolean;
+    disable: boolean;
+    default_value: string | number | boolean | null | undefined | any;
+    unique: boolean;
+    hidden: boolean;
+    private_field: boolean;
+    input_name?: string;
+    hint: string;
   };
 }
 
@@ -41,7 +40,7 @@ const InputBasicSettings: React.FC<InputSettingsProps> = ({ component }) => {
     private_field,
     input_name,
     hint,
-  } = component.props || {};
+  } = component || {};
 
   const onChange = (
     value?: string | number | boolean | null | undefined | any,
