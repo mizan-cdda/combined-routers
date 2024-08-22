@@ -87,16 +87,6 @@ const componentsSlice: any = createSlice({
         state[parentName].children.push(id);
         state[id] = {
           id,
-          props: {
-            ...item?.props,
-            // style: {
-            //   // minHeight: "50px",
-            //   // width: "100%",
-            //   overflow: "hidden",
-            //   // paddding: "10px",
-            //   ...item?.defaultStyles,
-            // },
-          },
           children: [],
           type: item?.type,
           componentName: item?.name,
@@ -239,7 +229,7 @@ const componentsSlice: any = createSlice({
       action: PayloadAction<{ id: ComponentId; name: string; value: any }>
     ) => {
       const { id, name, value } = action.payload;
-      state[id].props.style[name] = value;
+      state[id][name] = value;
     },
 
     // add component event handler functions
@@ -306,7 +296,7 @@ const componentsSlice: any = createSlice({
       action: PayloadAction<{ id: ComponentId; name: string; value: any }>
     ) => {
       const { id, name, value } = action.payload;
-      state[id].props[name] = value;
+      state[id][name] = value;
     },
 
     // update content of a component

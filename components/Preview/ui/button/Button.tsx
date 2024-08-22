@@ -8,6 +8,8 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   children?: React.ReactNode;
   loading?: boolean;
+  componentName?: string;
+  label?: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -19,6 +21,8 @@ const Button: FC<ButtonProps> = ({
   shadow,
   className: classes,
   loading = false,
+  componentName,
+  label,
   ...props
 }) => {
   return (

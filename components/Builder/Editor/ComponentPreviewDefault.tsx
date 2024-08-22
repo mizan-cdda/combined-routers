@@ -11,10 +11,11 @@ const ComponentPreview: React.FC<{
 }> = ({ componentName }) => {
   // Retrieve the component using the provided name
   const component = useSelector(getComponentBy(componentName));
-
+  const { size, label, variant, shape, color, shadow } = component || {};
   // Get props and ref using the useInteractive hook
   const { props, ref }: any = useInteractive(component, false);
 
+  console.log("component props in interactive", props);
   // Destructure style from props
   const { style: intStyle, ...rest } = props;
 
@@ -54,17 +55,18 @@ const ComponentPreview: React.FC<{
 
   // Return the component wrapped in a div with the ref
   return (
-    <div ref={ref}>
+    <div ref={ref} className="w-full">
       <DynamicComponent
         {...rest}
         style={{
-          ...componentStyle,
+          width: "100%",
           ...intStyle,
         }}
-        functions={component?.functions}
+        // {...component}
         componentName={componentName}
-        content={component?.content}
+        {...{ size, shadow, shape, color, variant, label }}
       >
+        {!component?.children?.length ? component?.label : null}
         {component?.children?.length
           ? component?.children?.map((key: string) => (
               <ComponentPreview key={key} componentName={key} />
